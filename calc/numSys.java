@@ -5,40 +5,51 @@ import java.util.Scanner;
 public class numSys {
 
     int UserInput;
-    boolean run;
+    String UserChoice;
 
-    public void number_to_base10(int UserInput, boolean run) {
+    public static void base10_to_base16(int UserInput) {
 
-        for (int i = UserInput; run == true; i /= 2) {
-            int n = 0;
-            int pow = 0;
-            int result = 0;
-            int binary_base = 2;
-            if (i == 0) {
-                run = false;
-            }
-            if (i % 2 == 0 && i != 0) {
-                System.out.println(0);
-                n = 0;
-            }
-            if (i % 2 == 1) {
-                System.out.println(1);
-                n = 1;
-            }
-            if (n == 0) {
-                result = 1;
-            } else {
+        String hex = String.format("%X", UserInput);
+        System.out.println("hex: " + hex);
+    }
 
-            }
-            System.out.println(n);
+    public void base10_to_base8(int UserInput) {
+
+        String octal = String.format("%o", UserInput);
+        System.out.println("octal: " + octal);
+    }
+
+    public static void base10_to_base2(int UserInput) {
+
+        String binary = Integer.toBinaryString(UserInput);
+        System.out.println("binary: " + binary);
+    }
+
+    public void which_base(String UserChoice) {
+
+        switch (UserChoice.toLowerCase()) {
+            case "hex":
+                base10_to_base16(UserInput);
+                break;
+            case "octal":
+                base10_to_base8(UserInput);
+                break;
+            case "binary":
+                base10_to_base2(UserInput);
+                break;
+            default:
+                System.out.println("invalid. please restart and choose from: hex, octal, binary");
         }
     }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        System.out.println("What decimal do you want to convert? (type a number)");
         int UserInput = scan.nextInt();
         numSys start = new numSys();
-        start.number_to_base10(UserInput, true);
+        start.UserInput = UserInput;
+        System.out.println("To what base do you want to convert? (hex, octal, binary)");
+        String UserChoice = scan.next();
+        start.which_base(UserChoice);
     }
-    // 10 2 8 16
 }
