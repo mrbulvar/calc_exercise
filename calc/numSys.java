@@ -13,7 +13,7 @@ public class numSys {
         System.out.println("hex: " + hex);
     }
 
-    public void base10_to_base8(int UserInput) {
+    public static void base10_to_base8(int UserInput) {
 
         String octal = String.format("%o", UserInput);
         System.out.println("octal: " + octal);
@@ -25,7 +25,7 @@ public class numSys {
         System.out.println("binary: " + binary);
     }
 
-    public void which_base(String UserChoice) {
+    public void which_base_to(String UserChoice) {
 
         switch (UserChoice.toLowerCase()) {
             case "hex":
@@ -50,6 +50,6 @@ public class numSys {
         start.UserInput = UserInput;
         System.out.println("To what base do you want to convert? (hex, octal, binary)");
         String UserChoice = scan.next();
-        start.which_base(UserChoice);
+        start.which_base_to(UserChoice);
     }
 }
