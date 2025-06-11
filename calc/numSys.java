@@ -38,7 +38,7 @@ public class numSys {
                 base10_to_base2(UserInput);
                 break;
             default:
-                System.out.println("invalid. please restart and choose from: hex, octal, binary");
+                System.out.println("invalid. please restart and choose from: hex, octal, binary.");
         }
     }
 
